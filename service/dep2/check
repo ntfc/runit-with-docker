@@ -1,0 +1,4 @@
+#!/bin/sh
+
+grep -q 1 /tmp/dep2 2&>1
+

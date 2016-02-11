@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "[dep2] Finishe dep2"
+echo 0 > /tmp/dep2

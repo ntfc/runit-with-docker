@@ -1,13 +1,20 @@
 #!/bin/sh
 
 echo
-echo "Let me check if the test thing is installed.."
+echo "[dep1] Let me check if the test thing is installed.."
 
-while ! sv check test &> /dev/null; do
+while ! sv -w1 check test &> /dev/null; do
   sleep 5
 done
 
-echo "Okay, the test thing is installed, so I can start"
-echo
+echo "[dep1] Okay, the test thing is installed, so I can start"
+
+echo "[dep1] Uh-oh, turns out I am very slow.."
+
+sleep 20s
+
+echo "[dep1] Okay, I am ready to start!"
+
+echo 1 > /tmp/dep1
 
 exec tail -f -n0 /root/.bashrc
