@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# no stdout available in here..
+#echo
+#echo "Check if /tmp/ok is ok"
+#echo
+
+grep -q 1 /tmp/ok 2&>1

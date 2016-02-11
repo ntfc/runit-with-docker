@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+exec 2>&1
+
+# make sure this service is only executed once
+sv once test
+
+if ! sv -w1 check test &> /dev/null; then
+  echo
+  echo "Oh my, I need to install something, so this will take a while, but it will only run once"
+  
+  sleep 15s
+  
+  
+  echo "Long task completed."
+  echo
+  echo "##"
+  echo "If you are seeing this for the second time, the world is about to end"
+  echo "##"
+  exec echo "1" > /tmp/ok
+fi
+
+echo "Nothing to see here folks, move on"

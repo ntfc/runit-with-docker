@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo
+echo "Let me check if the test thing is installed.."
+
+while ! sv check test &> /dev/null; do
+  sleep 5
+done
+
+echo "Okay, the test thing is installed, so I can start"
+echo
+
+exec tail -f -n0 /root/.bashrc

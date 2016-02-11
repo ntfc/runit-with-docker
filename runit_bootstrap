@@ -1,0 +1,15 @@
+#!/bin/bash
+# it is not possible to pass environment variables to runit
+# so we just save them in a file which we can source from
+# run scripts.
+export > /etc/envvars
+
+#exec /usr/sbin/runsvdir-start
+
+# copied directly from /usr/sbin/runsvdir-start, but add LD_PRELOAD
+
+PATH=:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
+
+exec env - PATH=$PATH LD_PRELOAD=/lib64/runit-docker.so \
+  runsvdir -P -H /etc/service 'log: ...........................................................................................................................................................................................................................................................................................................................................................................................................'
+
