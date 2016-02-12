@@ -9,6 +9,8 @@ After this service runs, all other services can start.
 
 ```
 cd runit-docker
+git submodule init
+git submodule update
 make
 cd ..
 docker build -t runit-test .
